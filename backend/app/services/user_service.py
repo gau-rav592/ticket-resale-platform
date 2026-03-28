@@ -53,7 +53,10 @@ class UserService:
         
         # Generate JWT token
         token = create_access_token(
-            data={"sub": user.email}
+            data={
+                "sub": str(user.id),
+                "email": user.email
+            }
         )
 
         return {"access_token": token, "token_type": "bearer"}

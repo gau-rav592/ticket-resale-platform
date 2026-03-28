@@ -37,7 +37,7 @@ docs/
 ## 📌 Features (Phase 1 - MVP)
 
 - User Authentication (JWT)
-- Ticket Listing (in progress)
+- Ticket listing module complete
 - Ticket Purchase (upcoming)
 
 ---
