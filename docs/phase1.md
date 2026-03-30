@@ -9,3 +9,8 @@
   - Create ticket
   - List tickets
   - Ticket detail API
+
+- Purchase flow completed:
+  - Order creation
+  - Ticket status update
+  - Business validations

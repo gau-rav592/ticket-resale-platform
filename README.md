@@ -38,7 +38,7 @@ docs/
 
 - User Authentication (JWT)
 - Ticket listing module complete
-- Ticket Purchase (upcoming)
+- Ticket Purchase Flow Complete
 
 ---
 
