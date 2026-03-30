@@ -5,12 +5,13 @@ from app.models.ticket import Ticket
 
 class TicketRepository:
 
-    def create_ticket(self, db: Session, title: str, description: str | None, price: float, owner_id: int):
+    def create_ticket(self, db: Session, title: str, description: str | None, price: float, seller_id: int, event_date_time):
         db_ticket = Ticket(
             title=title,
             description=description,
             price=price,
-            owner_id=owner_id
+            seller_id=seller_id,
+            event_date_time=event_date_time
         )
         db.add(db_ticket)
         db.commit()

@@ -10,13 +10,28 @@ class TicketService:
     def __init__(self):
         self.ticket_repository = TicketRepository()
 
-    def create_ticket(self, db: Session, ticket_data: CreateTicket, owner_id: int):
+    def create_ticket(self, db: Session, ticket_data: CreateTicket, seller_id: int):
+
+        # Basic validation
+        if ticket_data.price <= 0:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Price must be greater than 0"
+            )
+
+        if not ticket_data.title.strip():
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Title cannot be empty"
+            )
+
         return self.ticket_repository.create_ticket(
             db,
             title=ticket_data.title,
             description=ticket_data.description,
             price=ticket_data.price,
-            owner_id=owner_id
+            seller_id=seller_id,
+            event_date_time=ticket_data.event_date_time
         )
 
     def get_all_tickets(self, db: Session):

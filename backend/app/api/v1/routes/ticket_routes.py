@@ -20,7 +20,7 @@ def create_ticket(
     return ticket_service.create_ticket(
         db,
         ticket_data,
-        owner_id=current_user.id
+        seller_id=current_user.id
     )
 
 

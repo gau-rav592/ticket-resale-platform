@@ -2,11 +2,13 @@ from fastapi import FastAPI
 
 from app.api.v1.routes.user_routes import router as user_router
 from app.api.v1.routes.ticket_routes import router as ticket_router
+from app.api.v1.routes.order_routes import router as order_router
 
 app = FastAPI(title="Ticket Resale API")
 
 app.include_router(user_router, prefix="/api/v1/users")
 app.include_router(ticket_router, prefix="/api/v1/tickets", tags=["Tickets"])
+app.include_router(order_router, prefix="/api/v1/orders", tags=["Orders"])
 
 
 @app.get("/")

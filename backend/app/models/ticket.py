@@ -14,7 +14,10 @@ class Ticket(Base):
 
     price = Column(Float, nullable=False)
 
-    owner_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    seller_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+
+    status = Column(String, default="available", nullable=False)
+    event_date_time = Column(DateTime, nullable=False)
 
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
